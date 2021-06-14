@@ -1,5 +1,5 @@
 // Deployed on Rinkeby
-export const calculatorAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138";
+export const calculatorAddress = "0xF8FB1c5d3d5519E1867Fc1E845DA34c9367C3269";
 
 export const calculatorAbi = [
   {

@@ -12,7 +12,7 @@ function Calculator() {
 
   const handleClickAdd = async () => {
     try {
-      const res = await calculator.add(op1, op2);
+      const res = await calculator.add(Number(op1), Number(op2));
       // await tx.wait();
       console.log("add transaction done");
       setRes(res.toString());
@@ -70,6 +70,7 @@ function Calculator() {
     if (calculator) {
       const cb = (op1, op2, res) => {
         console.log("res recu depuis l'event: ${res}");
+        setRes(res.toString());
         // call back qui sera executée lorsque l'event sera émit
         // faire quelque chose avec param1 param2 ou param3
       };
@@ -107,11 +108,21 @@ function Calculator() {
           />
           <br />
           <div className="mt-3 d-flex gap-2">
-            <button onClick={handleClickAdd}>+</button>
-            <button onClick={handleClickSub}>-</button>
-            <button onClick={handleClickMul}>*</button>
-            <button onClick={handleClickMul}>/</button>
-            <button onClick={handleClickMul}>%</button>
+            <button className="btn btn-primary" onClick={handleClickAdd}>
+              +
+            </button>
+            <button className="btn btn-primary" onClick={handleClickSub}>
+              -
+            </button>
+            <button className="btn btn-primary" onClick={handleClickMul}>
+              *
+            </button>
+            <button className="btn btn-primary" onClick={handleClickMul}>
+              /
+            </button>
+            <button className="btn btn-primary" onClick={handleClickMul}>
+              %
+            </button>
           </div>
           <p>Res: {res}</p>
         </>
