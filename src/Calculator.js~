@@ -1,0 +1,40 @@
+import { useState, useContext } from "react";
+import { Web3Context } from "web3-hooks";
+import { CalculatorContext } from "./App";
+
+function Calculator() {
+  const [web3State] = useContext(Web3Context);
+  const calculator = useContext(CalculatorContext);
+  // const [count, setCount] = useState(0);
+  const [op1, setOp1] = useState(0);
+  const [op2, setOp2] = useState(0);
+  const [res, setRes] = useState(0);
+
+  const handleClickGet = () => {};
+
+  const handleClickIncrement = () => {};
+
+  const handleClickDecrement = () => {};
+
+  return (
+    // Si on veut return une expression js, il faut quand même la mettre dans un component
+    // Ici, il faut donc mettre {counter && ... ? ... : ...} à l'intérieur d'un fragment par exemple
+    <>
+      {calculator && web3State.chainId === 4 ? (
+        <>
+          <h1>Calculator</h1>
+          <p>calculator: {res.toString()}</p>
+          {/* <button onClick={handleClickGet}>get count</button> */}
+          <label htmlFor="add">Add: </label>
+          <input id="add" type="text" />
+          <button onClick={handleClickIncrement}>+</button>
+          <button onClick={handleClickDecrement}>-</button>
+        </>
+      ) : (
+        <p>Can't init contract</p>
+      )}
+    </>
+  );
+}
+
+export default Calculator;
